@@ -1,132 +1,206 @@
 # Module 1: Infrastructure & Prerequisites
 
-**Build your dev environment with Docker, AWS, and containerized deployment basics**
+**Build your dev environment with Docker, AWS, and Terraform**
 
-## 🎯 Learning Objectives
+## Quick Start
+
+1. **Read the study guide** in [`docs/module-01/`](../docs/module-01/) for conceptual learning
+2. **Practice with labs** in the folders below
+
+```
+Learn:  docs/module-01/        →  Theory and concepts
+Do:     module-01/terraform/    →  Hands-on Terraform practice
+        module-01/aws/localstack/  →  AWS service practice with LocalStack
+```
+
+## Learning Objectives
 
 By the end of this module, you will be able to:
-
 - Understand containerization concepts and Docker fundamentals
-- Set up and configure a local development environment with Docker
-- Build and deploy containerized applications
+- Set up and configure a local development environment
 - Understand AWS core services for ML workloads
 - Implement Infrastructure as Code using Terraform
+- Practice AWS services locally using LocalStack
 
-## 📋 Topics Covered
-
-### 1. Docker Fundamentals
-- Container vs. Virtual Machine concepts
-- Docker architecture (daemon, CLI, images, containers)
-- Building Docker images with Dockerfiles
-- Docker Compose for multi-container applications
-- Multi-stage builds for optimized images
-
-### 2. AWS Cloud Services
-- AWS EC2 for compute resources
-- AWS S3 for data storage
-- AWS IAM for security and access management
-- AWS CloudShell for cloud-based development
-
-### 3. Infrastructure as Code with Terraform
-- Terraform basics and configuration language
-- Provisioning AWS resources with Terraform
-- Managing state and configurations
-- Terraform modules for reusability
-
-## 📂 Module Structure
+## Module Structure
 
 ```
 module-01/
-├── docker/
-│   ├── basics/           # Docker fundamentals and first container
-│   ├── multi-stage/      # Optimized Docker builds
-│   └── compose/          # Multi-container applications
-├── aws/
-│   ├── ec2/              # EC2 instances for ML workloads
-│   ├── s3/               # S3 for data and model storage
-│   └── iam/              # Identity and access management
-├── terraform/
-│   ├── basics/           # Terraform fundamentals
-│   ├── modules/          # Reusable Terraform modules
-│   └── state/            # State management strategies
-├── exercises/            # Hands-on practice exercises
-└── solution/             # Exercise solutions
+├── aws/                         # LocalStack for local AWS practice
+│   ├── docker-compose.yml       # Container configuration
+│   ├── .env.example             # Environment variables
+│   └── README.md                # Lab exercises
+│
+└── terraform/
+    ├── basics/                  # Terraform fundamentals lab
+    │   ├── main.tf              # Configuration files
+    │   ├── variables.tf
+    │   ├── outputs.tf
+    │   └── README.md            # Lab instructions
+    ├── examples/                # Example configurations
+    │   ├── data-sources/
+    │   ├── for-each/
+    │   ├── locals/
+    │   └── outputs/
+    └── exercises/               # Practice exercises
+        └── exercises.md
 ```
 
-## 🚀 Getting Started
+## Study Path
 
-### Prerequisites
+### Step 1: Docker (Conceptual)
+
+**Learn in docs:**
+- [`docs/module-01/docker/basics.md`](../docs/module-01/docker/basics.md) - Docker concepts and theory
+
+**Note:** Docker labs are coming soon. For now, learn the concepts and practice with LocalStack (uses Docker under the hood).
+
+### Step 2: AWS Cloud Services
+
+**Learn in docs:**
+| Topic | Documentation |
+|-------|----------------|
+| Cloud Concepts | [`docs/module-01/aws/cloud-concepts.md`](../docs/module-01/aws/cloud-concepts.md) |
+| Compute Services | [`docs/module-01/aws/compute-services.md`](../docs/module-01/aws/compute-services.md) |
+| Storage Services | [`docs/module-01/aws/storage-services.md`](../docs/module-01/aws/storage-services.md) |
+| Database Services | [`docs/module-01/aws/database-services.md`](../docs/module-01/aws/database-services.md) |
+| Networking Services | [`docs/module-01/aws/networking-services.md`](../docs/module-01/aws/networking-services.md) |
+| Security & Compliance | [`docs/module-01/aws/security-compliance.md`](../docs/module-01/aws/security-compliance.md) |
+| Analytics Services | [`docs/module-01/aws/analytics-services.md`](../docs/module-01/aws/analytics-services.md) |
+| AI/ML Services | [`docs/module-01/aws/ai-ml-services.md`](../docs/module-01/aws/ai-ml-services.md) |
+| Billing & Pricing | [`docs/module-01/aws/billing-pricing.md`](../docs/module-01/aws/billing-pricing.md) |
+
+**Practice in labs:**
+- [`module-01/aws/`](aws/) - LocalStack lab environment
+  - [`README.md`](aws/README.md) - Lab exercises
+  - [`docker-compose.yml`](aws/docker-compose.yml) - Container config
+  - [`.env.example`](aws/.env.example) - Environment template
+
+### Step 3: Terraform Infrastructure as Code
+
+**Learn in docs:**
+- [`docs/module-01/terraform/basics.md`](../docs/module-01/terraform/basics.md) - Complete Terraform guide
+- [`docs/module-01/terraform/examples.md`](../docs/module-01/terraform/examples.md) - Example configurations
+- [`docs/module-01/terraform/exercises.md`](../docs/module-01/terraform/exercises.md) - Practice exercises
+
+**Practice in labs:**
+- [`module-01/terraform/basics/`](terraform/basics/) - Terraform fundamentals lab
+- [`module-01/terraform/examples/`](terraform/examples/) - Example configurations
+- [`module-01/terraform/exercises/`](terraform/exercises/) - Practice exercises
+
+## Prerequisites
 
 - Docker Desktop installed ([Download](https://www.docker.com/products/docker-desktop))
-- AWS Account ([Free Tier](https://aws.amazon.com/free/))
+- AWS Account ([Free Tier](https://aws.amazon.com/free/)) - optional, can use LocalStack
 - Terraform installed ([Download](https://www.terraform.io/downloads.html))
-- AWS CLI configured
+- AWS CLI configured (for LocalStack practice)
 
-### Setup
+## Setup
 
-1. **Verify Docker installation:**
-   ```bash
-   docker --version
-   docker run hello-world
-   ```
+### 1. Verify Docker installation:
+```bash
+docker --version
+docker run hello-world
+```
 
-2. **Configure AWS CLI:**
-   ```bash
-   aws configure
-   ```
+### 2. Verify Terraform installation:
+```bash
+terraform version
+```
 
-3. **Verify Terraform installation:**
-   ```bash
-   terraform version
-   ```
+### 3. Start LocalStack (for AWS practice):
+```bash
+cd module-01/aws
+cp .env.example .env
+docker compose up -d
+```
 
-## 📖 Lessons
+## How to Study
 
-### Lesson 1.1: Docker Basics
-Start here to learn containerization fundamentals.
+### For Each Topic
 
-- [Docker Basics Guide](./docker/basics/README.md)
-- Exercise: Containerize a simple ML inference script
+1. **Read the conceptual guide** in `docs/module-01/`
+2. **Navigate to the lab folder** in `module-01/`
+3. **Follow the lab README** to practice
+4. **Experiment** with configurations
+5. **Complete exercises** to reinforce learning
 
-### Lesson 1.2: Multi-Stage Builds
-Learn to optimize Docker images for production.
+### Example: Learning AWS S3
 
-- [Multi-Stage Builds Guide](./docker/multi-stage/README.md)
-- Exercise: Create optimized ML model serving image
+```bash
+# 1. Read the theory
+cat docs/module-01/aws/storage-services.md
 
-### Lesson 1.3: Docker Compose
-Orchestrate multi-container applications.
+# 2. Start LocalStack
+cd module-01/aws
+docker compose up -d
 
-- [Docker Compose Guide](./docker/compose/README.md)
-- Exercise: Build a full ML API stack with database
+# 3. Practice S3 operations
+aws --endpoint-url=http://localhost:4566 s3 ls
+aws --endpoint-url=http://localhost:4566 s3 mb s3://my-bucket
+```
 
-### Lesson 1.4: AWS Core Services
-Essential AWS services for ML workloads.
+### Example: Learning Terraform
 
-- [AWS Services Guide](./aws/README.md)
-- Exercise: Deploy a container to AWS ECS
+```bash
+# 1. Read the theory
+cat docs/module-01/terraform/basics.md
 
-### Lesson 1.5: Terraform Fundamentals
-Infrastructure as Code with Terraform.
+# 2. Navigate to lab
+cd module-01/terraform/basics
 
-- [Terraform Guide](./terraform/basics/README.md)
-- Exercise: Provision AWS infrastructure with Terraform
+# 3. Practice Terraform
+terraform init
+terraform plan -var-file="terraform.tfvars.localstack"
+terraform apply -var-file="terraform.tfvars.localstack"
+```
 
-## 💡 Exercises
+## AWS CLF-C02 Exam Preparation
 
-Complete the exercises in the `exercises/` directory to practice what you've learned.
+This module covers the **AWS Certified Cloud Practitioner (CLF-C02)** exam:
 
-1. [Exercise 1.1: Your First Container](./exercises/exercise-01-first-container.md)
-2. [Exercise 1.2: ML Model Containerization](./exercises/exercise-02-ml-container.md)
-3. [Exercise 1.3: AWS Resource Provisioning](./exercises/exercise-03-aws-provision.md)
+| Domain | Weight | Documentation |
+|--------|--------|---------------|
+| Domain 1: Cloud Concepts | 26% | [Cloud Concepts](../docs/module-01/aws/cloud-concepts.md) |
+| Domain 2: Security & Compliance | 25% | [Security & Compliance](../docs/module-01/aws/security-compliance.md) |
+| Domain 3: Core Services | 33% | All service guides linked above |
+| Domain 4: Migration & Optimization | 16% | [Deployment Methods](../docs/module-01/aws/deployment-methods.md) |
 
-## 📚 Additional Resources
+## Exercises
 
+Complete these exercises to practice what you've learned:
+
+### LocalStack Exercises
+- Exercise 1: S3 Bucket Operations (see [`aws/README.md`](aws/README.md))
+- Exercise 2: DynamoDB Table Operations
+- Exercise 3: Lambda Function Deployment
+
+### Terraform Exercises
+- Exercise 1: Create S3 Bucket with Terraform
+- Exercise 2: Multiple Environments with for_each
+- Exercise 3: Query Existing Infrastructure
+- (See [`terraform/exercises/exercises.md`](terraform/exercises/exercises.md) for complete list)
+
+## Additional Resources
+
+### External References
 - [Docker Documentation](https://docs.docker.com/)
 - [AWS Documentation](https://docs.aws.amazon.com/)
 - [Terraform Documentation](https://www.terraform.io/docs)
-- [Docker Best Practices](https://docs.docker.com/develop/dev-best-practices/)
+- [LocalStack Documentation](https://docs.localstack.cloud/)
 
-## 🎓 Next Steps
+### Internal Documentation
+- [Complete Study Guide](../docs/README.md) - Overall training navigation
+- [Module 1 Documentation](../docs/module-01/) - All conceptual guides
 
-After completing this module, proceed to [Module 2: Model Deployment](../module-02/README.md)
+## Next Steps
+
+After completing this module:
+1. Review all AWS service guides in [`docs/module-01/aws/`](../docs/module-01/aws/)
+2. Complete all Terraform exercises in [`terraform/exercises/`](terraform/exercises/)
+3. Practice with LocalStack until comfortable with AWS CLI
+4. Proceed to [Module 2: Model Deployment](../module-02/)
+
+---
+
+**Module Overview:** [docs/module-01/README.md](../docs/module-01/)
