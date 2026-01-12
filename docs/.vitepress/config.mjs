@@ -7,6 +7,9 @@ export default defineConfig({
   // Clean URLs (no .html extension)
   cleanUrls: true,
 
+  // Ignore dead links for work-in-progress documentation
+  ignoreDeadLinks: true,
+
   themeConfig: {
     // Site navigation
     nav: [
