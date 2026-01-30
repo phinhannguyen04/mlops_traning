@@ -115,3 +115,5 @@ pnpm-debug.log*
 # VitePress build output
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+
+_bmad

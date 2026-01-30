@@ -14,6 +14,22 @@ By the end of this module, you will be able to:
 
 ## 📋 Topics Covered
 
+### 0. Advanced Python (Preparation)
+
+**Location:** `module-02/advanced-python/`
+
+Essential Python concepts for MLOps engineering:
+- Type hints and static type checking
+- Modern project management with uv
+- Data validation with Pydantic
+- Decorator patterns for cleaner code
+- Asynchronous programming with async/await
+
+📚 [Start Advanced Python Labs →](./advanced-python/README.md)
+📖 [Read Theory Documentation →](../docs/module-02/README.md)
+
+---
+
 ### 1. REST API Deployment (FastAPI)
 - Building RESTful APIs for ML models
 - Request/response validation
