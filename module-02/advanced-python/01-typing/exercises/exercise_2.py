@@ -17,7 +17,7 @@ INSTRUCTIONS:
 
 
 # TODO: Add type hints including collection types
-def uppercase_names(names):
+def uppercase_names(names: list[str]) -> list[str]:
     """Convert all names in a list to uppercase.
 
     Args:
@@ -30,7 +30,15 @@ def uppercase_names(names):
 
 
 # TODO: Add type hints for dictionary with list values
-def get_user_scores():
+
+from typing import TypeAlias
+
+UserScore: TypeAlias = dict[
+    str,        # key
+    list[int]   # value
+]
+
+def get_user_scores() -> UserScore:
     """Get a dictionary of users and their test scores.
 
     Returns:
@@ -44,7 +52,7 @@ def get_user_scores():
 
 
 # TODO: Add type hints for function working with dict parameter
-def print_user_scores(scores_dict):
+def print_user_scores(scores_dict: UserScore) -> None:
     """Print each user and their scores.
 
     Args:
@@ -55,7 +63,7 @@ def print_user_scores(scores_dict):
 
 
 # TODO: Add type hints for set return type
-def get_unique_tags():
+def get_unique_tags() -> set[str]:
     """Get a set of unique tags.
 
     Returns:
@@ -66,7 +74,13 @@ def get_unique_tags():
 
 
 # TODO: Add type hints for nested list (list of dicts)
-def get_users():
+
+UserData: TypeAlias = dict [
+    str,            # key,
+    str | int       # value
+]
+
+def get_users() -> list[UserData]:
     """Get a list of user dictionaries.
 
     Returns:
@@ -80,7 +94,7 @@ def get_users():
 
 
 # TODO: Add type hints for tuple return (fixed size)
-def get_coordinate():
+def get_coordinate() -> tuple[float, float]:
     """Get a coordinate as a tuple.
 
     Returns:
@@ -90,7 +104,7 @@ def get_coordinate():
 
 
 # TODO: Add type hints for function accepting dict and returning list
-def extract_names(users):
+def extract_names(users: list[dict[str, str]]) -> list[str]:
     """Extract just the names from a list of user dictionaries.
 
     Args:
