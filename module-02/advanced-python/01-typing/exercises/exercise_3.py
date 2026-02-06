@@ -16,7 +16,7 @@ INSTRUCTIONS:
 
 
 # TODO: Add type hints with Optional return (user might not be found)
-def find_user_by_id(user_id):
+def find_user_by_id(user_id: int) -> str | None:
     """Find a user by their ID.
 
     Args:
@@ -34,7 +34,8 @@ def find_user_by_id(user_id):
 
 
 # TODO: Add type hints with Union type (accepts int or str)
-def convert_id_to_string(user_id):
+
+def convert_id_to_string(user_id: int | str) -> str | None:
     """Convert a user ID to string format.
 
     Args:
@@ -45,9 +46,10 @@ def convert_id_to_string(user_id):
     """
     return str(user_id)
 
+from typing import Any
 
 # TODO: Add type hints with Optional parameter and return
-def calculate_with_default(value, default=None):
+def calculate_with_default(value: Any | None, default: Any | None =None):
     """Calculate a value, using default if value is None.
 
     Args:
@@ -65,7 +67,7 @@ def calculate_with_default(value, default=None):
 
 
 # TODO: Add type hints (config can be dict or None)
-def initialize_system(config):
+def initialize_system(config: dict | None):
     """Initialize system with optional configuration.
 
     Args:
@@ -80,7 +82,7 @@ def initialize_system(config):
 
 
 # TODO: Add type hints (accepts int, float, or str; returns float)
-def parse_number(value):
+def parse_number(value: int | float | str) -> float:
     """Parse a number from various input types.
 
     Args:
@@ -93,7 +95,7 @@ def parse_number(value):
 
 
 # TODO: Add type hints (returns list or None)
-def get_user_tags(user_id):
+def get_user_tags(user_id: int) -> list[str] | None:
     """Get tags for a user.
 
     Args:

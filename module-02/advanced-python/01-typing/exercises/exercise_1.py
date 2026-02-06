@@ -15,9 +15,19 @@ INSTRUCTIONS:
 5. Fix any type errors until mypy reports success
 """
 
+from typing import TypeAlias
+
+UserProfile: TypeAlias = dict[
+    str,                # key
+    int | str | bool,   # values
+]
 
 # TODO: Add type hints to all parameters and return type
-def create_user_profile(name, age, email):
+def create_user_profile(
+        name: str, 
+        age: int, 
+        email: str
+) -> UserProfile:
     """Create a user profile dictionary.
 
     Args:
@@ -37,7 +47,10 @@ def create_user_profile(name, age, email):
 
 
 # TODO: Add type hints to all parameters and return type
-def calculate_tax(amount, tax_rate):
+def calculate_tax(
+        amount: int | float, 
+        tax_rate: float
+) -> float:
     """Calculate tax amount.
 
     Args:
@@ -51,7 +64,9 @@ def calculate_tax(amount, tax_rate):
 
 
 # TODO: Add type hints to all parameters and return type
-def format_currency(amount):
+def format_currency(
+    amount: float
+)-> str:
     """Format a number as currency.
 
     Args:
@@ -64,7 +79,11 @@ def format_currency(amount):
 
 
 # TODO: Add type hints to all parameters and return type
-def send_notification(message, recipient, urgent=False):
+def send_notification(
+        message: str, 
+        recipient: str, 
+        urgent: bool=False
+) -> None:
     """Send a notification message.
 
     Args:
@@ -81,7 +100,9 @@ def send_notification(message, recipient, urgent=False):
 
 
 # TODO: Add type hints to all parameters and return type
-def calculate_average(numbers):
+def calculate_average(
+        numbers: list[int | float]
+) -> int | float:
     """Calculate the average of a list of numbers.
 
     Args:
@@ -96,10 +117,10 @@ def calculate_average(numbers):
 def main():
     """Run exercise demonstrations."""
     # TODO: Add type annotation to this variable
-    name = "Alice"
+    name: str = "Alice"
 
     # TODO: Add type annotation to this variable
-    age = 30
+    age: int = 30
 
     # Create user profile
     user = create_user_profile(name, age, "alice@example.com")
