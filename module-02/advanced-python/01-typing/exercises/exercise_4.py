@@ -20,22 +20,23 @@ from typing import TypeAlias, NewType
 
 # TODO: Create a type alias for user data dictionary
 # UserData should be: dict[str, str | int | list[str]]
-
+UserData: TypeAlias = dict[str, str | int | list[str]]
 
 # TODO: Create a type alias for a matrix (list of list of ints)
 # Matrix should be: list[list[int]]
+Matrix: TypeAlias = list[list[int]]
 
 
 # TODO: Create NewType for UserID (based on int)
 # UserID = NewType('UserID', int)
-
+UserID = NewType('UserID', int)
 
 # TODO: Create NewType for OrderID (based on int)
 # OrderID = NewType('OrderID', int)
-
+OrderID = NewType('OrderID', int)
 
 # TODO: Add type hints using UserData alias
-def create_user(name, age, email, tags):
+def create_user(name: str, age: int, email: str, tags: list[str]) -> UserData:
     """Create a user data structure.
 
     Args:
@@ -56,7 +57,7 @@ def create_user(name, age, email, tags):
 
 
 # TODO: Add type hints using UserData alias
-def process_user(user_data):
+def process_user(user_data: UserData) -> None:
     """Process user data.
 
     Args:
@@ -69,7 +70,7 @@ def process_user(user_data):
 
 
 # TODO: Add type hints using UserID and OrderID NewTypes
-def create_order(user_id, order_id):
+def create_order(user_id: UserID, order_id: OrderID) -> str:
     """Create an order for a user.
 
     Args:
@@ -83,7 +84,7 @@ def create_order(user_id, order_id):
 
 
 # TODO: Add type hints using Matrix alias
-def sum_matrix(matrix):
+def sum_matrix(matrix: Matrix) -> int | float:
     """Calculate the sum of all elements in a matrix.
 
     Args:
@@ -100,7 +101,7 @@ def sum_matrix(matrix):
 
 
 # TODO: Add type hints using Matrix alias
-def create_identity_matrix(size):
+def create_identity_matrix(size: int) -> Matrix:
     """Create an identity matrix of given size.
 
     Args:
