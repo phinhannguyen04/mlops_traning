@@ -20,10 +20,11 @@ from typing import TypeVar, Generic
 
 # TODO: Declare a TypeVar named 'T'
 # T = TypeVar('T')
+T = TypeVar('T')
 
 
 # TODO: Add type hints using TypeVar T for generic first element function
-def get_first(items):
+def get_first(items: list[T]) -> T:
     """Get the first element from a list.
 
     Args:
@@ -36,7 +37,7 @@ def get_first(items):
 
 
 # TODO: Add type hints using TypeVar T for generic last element function
-def get_last(items):
+def get_last(items: list[T]) -> T:
     """Get the last element from a list.
 
     Args:
@@ -49,7 +50,7 @@ def get_last(items):
 
 
 # TODO: Add type hints using TypeVar T for generic chunk function
-def chunk_list(items, chunk_size):
+def chunk_list(items: list[T], chunk_size: int) -> list[list[T]]:
     """Split a list into chunks of specified size.
 
     Args:
@@ -74,7 +75,7 @@ def chunk_list(items, chunk_size):
 # - Have is_empty() -> bool
 # - Have size() -> int
 
-class Stack:
+class Stack(Generic[T]):
     """A generic stack data structure.
 
     TODO: Make this class generic using Generic[T]
@@ -84,7 +85,7 @@ class Stack:
         """Initialize an empty stack."""
         self._items = []
 
-    def push(self, item):
+    def push(self, item: T) -> None:
         """Push an item onto the stack.
 
         TODO: Add type hints (item should be type T)
@@ -94,7 +95,7 @@ class Stack:
         """
         self._items.append(item)
 
-    def pop(self):
+    def pop(self) -> T:
         """Pop an item from the stack.
 
         TODO: Add type hints (returns type T)
@@ -107,7 +108,7 @@ class Stack:
         """
         return self._items.pop()
 
-    def peek(self):
+    def peek(self) -> T | None:
         """Peek at the top item without removing it.
 
         TODO: Add type hints (returns T | None)
@@ -117,7 +118,7 @@ class Stack:
         """
         return self._items[-1] if self._items else None
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """Check if stack is empty.
 
         TODO: Add type hints
@@ -127,7 +128,7 @@ class Stack:
         """
         return len(self._items) == 0
 
-    def size(self):
+    def size(self) -> int:
         """Get the number of items in stack.
 
         TODO: Add type hints
